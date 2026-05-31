@@ -1,4 +1,3 @@
-````md
 # LAPORAN PRAKTIKUM JARINGAN KOMPUTER - MODUL 5
 ## UDP
 
@@ -45,7 +44,7 @@ Karakteristik UDP:
 Header UDP terdiri dari empat field utama:
 
 | Field | Ukuran |
-|---------|---------|
+|---|---|
 | Source Port | 2 Byte |
 | Destination Port | 2 Byte |
 | Length | 2 Byte |
@@ -76,16 +75,16 @@ Wireshark merupakan aplikasi network protocol analyzer yang digunakan untuk mena
 4. Membuka Command Prompt (CMD).
 5. Menjalankan perintah berikut:
 
-```bash
+\`\`\`bash
 nslookup www.google.com
-````
+\`\`\`
 
 6. Menghentikan proses capture.
 7. Memasukkan filter:
 
-```text
+\`\`\`
 udp
-```
+\`\`\`
 
 8. Memilih salah satu paket UDP yang muncul.
 9. Mengamati detail header UDP.
@@ -96,11 +95,11 @@ udp
 
 ## 4.1 Hasil Capture Paket UDP
 
-Setelah proses packet capture dilakukan, Wireshark berhasil menangkap paket UDP yang berasal dari proses DNS Query menuju domain `www.google.com`. Filter `udp` digunakan untuk menampilkan seluruh paket UDP yang tertangkap selama proses capture berlangsung.
+Setelah proses packet capture dilakukan, Wireshark berhasil menangkap paket UDP yang berasal dari proses DNS Query menuju domain \`www.google.com\`. Filter \`udp\` digunakan untuk menampilkan seluruh paket UDP yang tertangkap selama proses capture berlangsung.
 
 ### Gambar 4.1 Hasil Capture Paket UDP
 
-![](../week5/assets/image/week5(g1).png)
+![Hasil Capture UDP](assets/image/week5(g1).png)
 
 ---
 
@@ -108,13 +107,13 @@ Setelah proses packet capture dilakukan, Wireshark berhasil menangkap paket UDP 
 
 Berdasarkan hasil pengamatan pada Wireshark, diperoleh informasi sebagai berikut:
 
-| Field            | Nilai   |
-| ---------------- | ------- |
-| Source Port      | 65518   |
-| Destination Port | 53      |
-| Length           | 40      |
-| Checksum         | 0x352b  |
-| UDP Payload      | 32 Byte |
+| Field | Nilai |
+|---|---|
+| Source Port | 65518 |
+| Destination Port | 53 |
+| Length | 40 |
+| Checksum | 0x352b |
+| UDP Payload | 32 Byte |
 
 ## 4.3 Jawaban Pertanyaan Praktikum
 
@@ -131,18 +130,18 @@ Berdasarkan hasil pengamatan, terdapat 4 field pada header UDP, yaitu:
 
 ### 2. Berapa panjang masing-masing field yang terdapat pada header UDP?
 
-| Field            | Panjang |
-| ---------------- | ------- |
-| Source Port      | 2 Byte  |
-| Destination Port | 2 Byte  |
-| Length           | 2 Byte  |
-| Checksum         | 2 Byte  |
+| Field | Panjang |
+|---|---|
+| Source Port | 2 Byte |
+| Destination Port | 2 Byte |
+| Length | 2 Byte |
+| Checksum | 2 Byte |
 
 Total ukuran header UDP adalah:
 
-```text
+\`\`\`
 2 + 2 + 2 + 2 = 8 Byte
-```
+\`\`\`
 
 ---
 
@@ -152,17 +151,17 @@ Field Length menunjukkan total ukuran segmen UDP yang terdiri dari header UDP da
 
 Berdasarkan hasil capture:
 
-```text
+\`\`\`
 Length = 40 Byte
-```
+\`\`\`
 
 Karena ukuran header UDP adalah 8 byte, maka:
 
-```text
+\`\`\`
 Payload = Length - Header UDP
 Payload = 40 - 8
 Payload = 32 Byte
-```
+\`\`\`
 
 Hasil tersebut sesuai dengan informasi yang ditampilkan oleh Wireshark yaitu UDP payload sebesar 32 byte.
 
@@ -172,15 +171,15 @@ Hasil tersebut sesuai dengan informasi yang ditampilkan oleh Wireshark yaitu UDP
 
 Field Length memiliki ukuran 16 bit sehingga nilai maksimum yang dapat direpresentasikan adalah:
 
-```text
+\`\`\`
 65535 Byte
-```
+\`\`\`
 
 Karena header UDP berukuran 8 byte, maka:
 
-```text
+\`\`\`
 65535 - 8 = 65527 Byte
-```
+\`\`\`
 
 Jadi jumlah maksimum payload UDP adalah **65527 byte**.
 
@@ -190,9 +189,9 @@ Jadi jumlah maksimum payload UDP adalah **65527 byte**.
 
 Field Source Port memiliki ukuran 16 bit sehingga nilai maksimum yang dapat direpresentasikan adalah:
 
-```text
+\`\`\`
 65535
-```
+\`\`\`
 
 Jadi nomor port terbesar yang dapat digunakan sebagai Source Port adalah **65535**.
 
@@ -202,16 +201,16 @@ Jadi nomor port terbesar yang dapat digunakan sebagai Source Port adalah **65535
 
 Pada header IP terlihat informasi:
 
-```text
+\`\`\`
 Next Header: UDP (17)
-```
+\`\`\`
 
 Sehingga:
 
-| Format       | Nilai |
-| ------------ | ----- |
-| Desimal      | 17    |
-| Heksadesimal | 0x11  |
+| Format | Nilai |
+|---|---|
+| Desimal | 17 |
+| Heksadesimal | 0x11 |
 
 ---
 
@@ -221,19 +220,19 @@ Pada komunikasi DNS menggunakan UDP, paket request dikirim dari client menuju se
 
 Contoh:
 
-#### Paket Request
+**Paket Request**
 
-```text
+\`\`\`
 Source Port      = 65518
 Destination Port = 53
-```
+\`\`\`
 
-#### Paket Response
+**Paket Response**
 
-```text
+\`\`\`
 Source Port      = 53
 Destination Port = 65518
-```
+\`\`\`
 
 Dengan demikian, Source Port pada request akan menjadi Destination Port pada response, sedangkan Destination Port pada request akan menjadi Source Port pada response.
 
@@ -241,7 +240,7 @@ Dengan demikian, Source Port pada request akan menjadi Destination Port pada res
 
 # BAB 5. KESIMPULAN
 
-Berdasarkan praktikum yang telah dilakukan, dapat disimpulkan bahwa UDP merupakan protokol transport yang bersifat connectionless dan memiliki ukuran header yang kecil yaitu 8 byte. Header UDP terdiri dari empat field utama yaitu Source Port, Destination Port, Length, dan Checksum. Pada hasil capture Wireshark diperoleh paket DNS Query menuju domain `www.google.com` dengan Source Port 65518, Destination Port 53, Length 40 byte, dan payload sebesar 32 byte. Analisis ini menunjukkan bagaimana UDP digunakan dalam proses komunikasi DNS pada jaringan komputer.
+Berdasarkan praktikum yang telah dilakukan, dapat disimpulkan bahwa UDP merupakan protokol transport yang bersifat connectionless dan memiliki ukuran header yang kecil yaitu 8 byte. Header UDP terdiri dari empat field utama yaitu Source Port, Destination Port, Length, dan Checksum. Pada hasil capture Wireshark diperoleh paket DNS Query menuju domain \`www.google.com\` dengan Source Port 65518, Destination Port 53, Length 40 byte, dan payload sebesar 32 byte. Analisis ini menunjukkan bagaimana UDP digunakan dalam proses komunikasi DNS pada jaringan komputer.
 
 ---
 
@@ -250,6 +249,3 @@ Berdasarkan praktikum yang telah dilakukan, dapat disimpulkan bahwa UDP merupaka
 1. Kurose, J. F., & Ross, K. W. *Computer Networking: A Top-Down Approach*.
 2. RFC 768 - User Datagram Protocol (UDP).
 3. Wireshark Foundation. *Wireshark User Guide*.
-
-```
-```
