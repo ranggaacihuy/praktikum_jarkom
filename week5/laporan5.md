@@ -102,9 +102,6 @@ Setelah proses packet capture dilakukan, Wireshark berhasil menangkap paket UDP 
 
 ![](../week5/assets/image/week5(g1).png)
 
-**Keterangan:**
-Tambahkan screenshot hasil capture UDP yang menampilkan paket DNS Query menuju domain `www.google.com`.
-
 ---
 
 ## 4.2 Analisis Header UDP
